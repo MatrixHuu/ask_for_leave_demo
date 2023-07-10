@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工请假</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Import style -->
+    <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="//unpkg.com/vue@3"></script>
+    <!-- Import component library -->
+    <script src="//unpkg.com/element-plus"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <h1>提交请假申请</h1>
+        <table>
+            <tr>
+                <td>请输入请假天数：</td>
+                <td>
+                    <el-input v-model="afl.days" placeholder="请假天数"/>
+                </td>
+            </tr>
+            <tr>
+                <td>请输入请假原因：</td>
+                <td>
+                    <el-input v-model="afl.reason" placeholder="请假原因"/>
+                </td>
+            </tr>
+            <tr>
+                <td>请输入请假开始时间：</td>
+                <td>
+                    <el-date-picker
+                            v-model="afl.startTime"
+                            type="datetime"
+                            format="YYYY-MM-DD HH:mm"
+                            value-format="YYYY-MM-DD HH:mm"
+                            placeholder="开始时间"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td>请输入请假结束时间：</td>
+                <td>
+                    <el-date-picker
+                            v-model="afl.endTime"
+                            type="datetime"
+                            format="YYYY-MM-DD HH:mm"
+                            value-format="YYYY-MM-DD HH:mm"
+                            placeholder="结束时间"
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td>请选择审批人：</td>
+                <td>
+                    <el-input v-model="afl.approveUser" placeholder="审批人"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        展示所有提交的请假信息的
+    </div>
+</div>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                afl: {
+                    days: 0,
+                    reason: null,
+                    startTime: null,
+                    endTime: null,
+                    approveUser: null
+                }
+            }
+        }
+    }).use(ElementPlus).mount("#app");
+</script>
+</body>
+</html>
