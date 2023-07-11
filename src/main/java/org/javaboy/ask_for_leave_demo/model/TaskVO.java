@@ -1,16 +1,15 @@
 package org.javaboy.ask_for_leave_demo.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
 
 /**
  * @author xyma
  * @version 1.0
- * @data 2023/7/10 21:56
+ * @data 2023/7/12 1:40
  */
-public class AskForLeaveVO {
+public class TaskVO {
     private Integer days;
     private String reason;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Shanghai")
@@ -19,53 +18,38 @@ public class AskForLeaveVO {
     private Date endTime;
 
     private String approveUser;
+    private String taskId;
     private Boolean approval;
-    private String processId;
+    private String applicant;
 
-    public AskForLeaveVO(Integer days, String reason, Date startTime, Date endTime, String approveUser, Boolean approval, String processId) {
-        this.days = days;
-        this.reason = reason;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.approveUser = approveUser;
-        this.approval = approval;
-        this.processId = processId;
+    public String getApplicant() {
+        return applicant;
+    }
+
+    public void setApplicant(String applicant) {
+        this.applicant = applicant;
     }
 
     public Boolean getApproval() {
         return approval;
     }
 
-    public void setApproval(Boolean approval) {
-        this.approval = approval;
+    public TaskVO() {
     }
 
-    public String getProcessId() {
-        return processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public AskForLeaveVO(Integer days, String reason, Date startTime, Date endTime, String approveUser, String processId) {
+    public TaskVO(Integer days, String reason, Date startTime, Date endTime, String approveUser, String taskId, Boolean approval, String applicant) {
         this.days = days;
         this.reason = reason;
         this.startTime = startTime;
         this.endTime = endTime;
         this.approveUser = approveUser;
-        this.processId = processId;
+        this.taskId = taskId;
+        this.approval = approval;
+        this.applicant = applicant;
     }
 
-    public AskForLeaveVO() {
-    }
-
-    public String getApproveUser() {
-        return approveUser;
-    }
-
-    public void setApproveUser(String approveUser) {
-        this.approveUser = approveUser;
+    public void setApproval(Boolean approval) {
+        this.approval = approval;
     }
 
     public Integer getDays() {
@@ -98,5 +82,21 @@ public class AskForLeaveVO {
 
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+
+    public String getApproveUser() {
+        return approveUser;
+    }
+
+    public void setApproveUser(String approveUser) {
+        this.approveUser = approveUser;
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 }
